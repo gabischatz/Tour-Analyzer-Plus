@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="Lutz Müller (gabischatz)">
+  <meta name="description" content="Anleitung für Tour Analyzer Plus: Datei laden, OSM-Objektabfrage, Way-IDs, Tags, GeoJSON-Export und OSM-Routen-Relation vorbereiten.">
+  <title>Tour Analyzer Plus — Anleitung</title>
+  <style>
+    :root {
+      --bg: #f4f7f6;
+      --card: #ffffff;
+      --text: #243447;
+      --muted: #66788a;
+      --blue: #1269c7;
+      --green: #27ae60;
+      --orange: #f39c12;
+      --red: #dc3545;
+      --border: #dce3ea;
+      --dark: #2c3e50;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+    }
+    header {
+      background: var(--dark);
+      color: white;
+      padding: 18px 22px;
+    }
+    header a { color: white; }
+    main {
+      max-width: 980px;
+      margin: 24px auto;
+      padding: 0 16px 40px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 20px;
+      margin: 16px 0;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+    }
+    h1, h2, h3 { line-height: 1.25; }
+    h1 { margin: 0 0 6px; font-size: 1.7rem; }
+    h2 { margin-top: 0; color: #1f3348; }
+    code, pre {
+      font-family: Consolas, "Courier New", monospace;
+      background: #f1f5f8;
+      border: 1px solid #dde7ef;
+      border-radius: 8px;
+    }
+    code { padding: 2px 5px; }
+    pre { padding: 12px; overflow: auto; }
+    .muted { color: var(--muted); }
+    .btnline { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
+    .pill {
+      display: inline-block;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: #edf4fb;
+      color: #1f5f9e;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+    .warn { border-left: 5px solid var(--orange); background: #fff8e7; }
+    .good { border-left: 5px solid var(--green); background: #eefaf2; }
+    table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+    th, td { border: 1px solid var(--border); padding: 8px; vertical-align: top; text-align: left; }
+    th { background: #eef3f7; }
+    a { color: var(--blue); }
+    footer { color: var(--muted); font-size: 0.9rem; margin-top: 24px; }
+  </style>
+</head>
+<body>
+<header>
+  <h1>📊 Tour Analyzer Plus — Anleitung</h1>
+  <div class="muted">Dateien laden, OSM-Wege abfragen, Tags sammeln und GeoJSON für die Weiterarbeit vorbereiten.</div>
+  <div class="btnline">
+    <a href="https://gabischatz.de.cool/VeloLog/tour-analyzer-plus.html">⬅ Zur App</a>
+  </div>
+</header>
+
+<main>
+  <section class="card">
+    <h2>1. Start der App</h2>
+    <p>Beim normalen Start versucht die App, deinen aktuellen Standort zu ermitteln. Wenn du die Standortfreigabe erlaubst, wird die Karte direkt auf deinen Standort gesetzt. Wird die Freigabe abgelehnt, startet die Karte mit der Standardansicht.</p>
+    <p>Der Titel <strong>📊 Tour Analyzer Plus</strong> in der App ist ein Link auf die Startseite und lädt die App neu.</p>
+  </section>
+
+  <section class="card">
+    <h2>2. Route laden</h2>
+    <p>Du kannst eine Datei per Drag-and-drop auf die Karte ziehen oder über <strong>Route öffnen</strong> auswählen.</p>
+    <p>Unterstützte Formate: <span class="pill">GPX</span> <span class="pill">GeoJSON</span> <span class="pill">JSON</span> <span class="pill">KML</span> <span class="pill">TCX</span></p>
+    <p>Nach dem Laden werden die Koordinaten rechts angezeigt. Dort kannst du einzelne Punkte an- oder abwählen.</p>
+  </section>
+
+  <section class="card">
+    <h2>3. GeoJSON und GeoJSON (Rev)</h2>
+    <p>Mit <strong>GeoJSON</strong> werden die ausgewählten Punkte in normaler Reihenfolge übernommen.</p>
+    <p>Mit <strong>GeoJSON (Rev)</strong> werden die ausgewählten Punkte in umgekehrter Reihenfolge übernommen.</p>
+    <p>Beim Klick auf einen dieser Buttons öffnet sich automatisch die Verlauf-/Routen-Relation-Sidebar. Dadurch kannst du vor dem Export prüfen, ob Way-IDs, Tags und Routenangaben stimmen.</p>
+  </section>
+
+  <section class="card">
+    <h2>4. Objektabfrage per Rechtsklick</h2>
+    <p>Mit Rechtsklick auf die Karte öffnest du links die <strong>Objektabfrage</strong>. Dort sucht die App nahe OSM-Wege, zum Beispiel Straßen, Tracks, Pfade, Wanderwege und Radwege.</p>
+    <p>Die blaue <strong>Way-ID</strong> öffnet den Tour Analyzer in einem neuen Tab:</p>
+    <pre>https://gabischatz.de.cool/VeloLog/tour-analyzer-plus.html?way_id=WAY_ID</pre>
+    <p>Wenn du mit der Maus über eine Way-ID oder Kachel fährst, wird der passende Weg blau auf der Karte markiert.</p>
+  </section>
+
+  <section class="card">
+    <h2>5. Way-IDs und wichtige Tags übernehmen</h2>
+    <p>In jeder Objekt-Kachel kannst du die Way-ID und wichtige Tags übernehmen. Die Tags werden im Browser-Cache gespeichert und beim GeoJSON-Export mitgeschrieben.</p>
+    <table>
+      <tr><th>Tag</th><th>Bedeutung</th></tr>
+      <tr><td><code>highway=track</code></td><td>Wegtyp, hier Wirtschafts-/Forstweg</td></tr>
+      <tr><td><code>surface=ground</code></td><td>Belag, hier Boden/Erde</td></tr>
+      <tr><td><code>tracktype=grade3</code></td><td>Track-Qualität, hier mittlere Befestigung</td></tr>
+      <tr><td><code>lit=yes/no</code></td><td>Beleuchtung vorhanden oder nicht</td></tr>
+      <tr><td><code>bicycle=yes</code></td><td>Fahrradnutzung erlaubt</td></tr>
+      <tr><td><code>foot=yes</code></td><td>Fußnutzung erlaubt</td></tr>
+    </table>
+  </section>
+
+  <section class="card">
+    <h2>6. Verlauf- und Routen-Relation-Sidebar</h2>
+    <h3>Koordinaten-Sammlung</h3>
+    <p>Hier werden die übernommenen Koordinaten gesammelt. Aus dieser Sammlung entsteht die exportierte GeoJSON-Linie.</p>
+    <h3>OSM-Routen-Relation</h3>
+    <p>Diese Felder dienen zur Vorbereitung einer möglichen OSM-Routenrelation:</p>
+    <table>
+      <tr><th>Feld</th><th>Beschreibung</th></tr>
+      <tr><td><code>network</code></td><td><code>lcn</code> lokal, <code>rcn</code> regional, <code>ncn</code> national, <code>icn</code> international</td></tr>
+      <tr><td><code>name</code></td><td>Name der ausgeschilderten/offiziellen Route, nicht nur ein eigener Arbeitsname</td></tr>
+      <tr><td><code>ref</code></td><td>Nummer oder Kürzel, falls ausgeschildert</td></tr>
+      <tr><td><code>operator</code></td><td>Betreiber/Träger, zum Beispiel Stadt, Gemeinde, Landkreis oder Tourismusverband</td></tr>
+      <tr><td><code>source</code></td><td>Quelle, zum Beispiel <code>survey</code>, <code>website</code> oder <code>website;survey</code></td></tr>
+      <tr><td><code>website</code></td><td>Offizielle Projekt- oder Informationsseite</td></tr>
+      <tr><td><code>source:planner</code></td><td>Planer-Link, zum Beispiel Fietsknoop, als interne Arbeitsquelle</td></tr>
+      <tr><td><code>note</code></td><td>Interner Hinweis für deine Vorbereitung</td></tr>
+    </table>
+  </section>
+
+  <section class="card good">
+    <h2>7. Beispiel Mühlhausen</h2>
+    <pre>{
+  "type": "route",
+  "route": "bicycle",
+  "network": "lcn",
+  "name": "Mühlhäuser Stadtwald",
+  "ref": "01-02",
+  "operator": "Stadt Mühlhausen",
+  "source": "website;survey",
+  "website": "https://www.muehlhausen.de/rathaus-erkunden/projekte-stadtverwaltung/wandern/",
+  "source:planner": "https://www.fietsknoop.nl/plannerplugin/muehlhausenThueringenRadfahren",
+  "note": "Abschnitt im Knotenpunktsystem Mühlhäuser Stadtwald"
+}</pre>
+  </section>
+
+  <section class="card warn">
+    <h2>8. Wichtig für OSM</h2>
+    <p>Nicht jede selbst gefahrene oder selbst geplante Strecke ist automatisch eine OSM-Radroute.</p>
+    <p>Eine OSM-Routenrelation sollte nur angelegt werden, wenn die Route vor Ort oder durch offizielle Quellen nachvollziehbar ist, zum Beispiel durch Beschilderung, Knotenpunkte, Wegweiser oder eine offizielle Projektseite.</p>
+    <p><code>operator</code> ist nicht der Autor und nicht das Programm. Es ist der Träger oder Betreiber der Route.</p>
+    <p><code>source=survey</code> bedeutet: Die Information wurde vor Ort selbst geprüft.</p>
+  </section>
+
+  <section class="card">
+    <h2>9. GeoJSON-Ausgabe</h2>
+    <p>Die exportierte GeoJSON enthält:</p>
+    <ul>
+      <li>die gesammelten Koordinaten als <code>LineString</code></li>
+      <li><code>osm_id_way_ids</code> mit den übernommenen Way-IDs</li>
+      <li><code>osm_way_tag_cache</code> mit den pro Way übernommenen Tags</li>
+      <li><code>osm_route_relation_tags</code> mit den Angaben aus der Routen-Relation-Sidebar</li>
+    </ul>
+  </section>
+
+  <footer>
+    Enthält Daten von OpenStreetMap-Mitwirkenden. © OpenStreetMap-Mitwirkende. Lizenz: ODbL 1.0.
+  </footer>
+</main>
+</body>
+</html>
