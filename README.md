@@ -1,5 +1,7 @@
 # Tour Analyzer Plus
 
+**Webanwendung:** [https://overpass-osm.de.cool/tour-analyzer-plus/](https://overpass-osm.de.cool/tour-analyzer-plus/)
+
 **Tour Analyzer Plus** ist ein webbasiertes Werkzeug zur Analyse von Touren, Routen und OpenStreetMap-nahen Objektdaten.
 
 Die Anwendung hilft dabei,
@@ -12,7 +14,24 @@ Die Anwendung hilft dabei,
 
 Die folgende Dokumentation zeigt nicht nur Text, sondern direkt die wichtigsten Ansichten aus der Anwendung.
 
-https://overpass-osm.de.cool/tour-analyzer-plus
+
+## 📺 Video-Anleitungen
+
+Zwei ausführliche Video-Tutorials zeigen die wichtigsten Funktionen von Tour Analyzer Plus im praktischen Einsatz.
+
+### Teil 1: Grundlagen & erste Schritte
+
+[![Tour Analyzer Plus — Anleitung: Teil 1](https://img.youtube.com/vi/u4m8UiuJG1s/0.jpg)](https://www.youtube.com/watch?v=u4m8UiuJG1s)
+
+[Tour Analyzer Plus — Anleitung: Teil 1 auf YouTube ansehen](https://www.youtube.com/watch?v=u4m8UiuJG1s)
+
+### Teil 2: Fortgeschrittene Funktionen & Workflows
+
+[![Tour Analyzer Plus — Anleitung: Teil 2](https://img.youtube.com/vi/fOgraKkVKTM/0.jpg)](https://www.youtube.com/watch?v=fOgraKkVKTM)
+
+[Tour Analyzer Plus — Anleitung: Teil 2 auf YouTube ansehen](https://www.youtube.com/watch?v=fOgraKkVKTM)
+
+---
 ---
 
 ## Wofür ist das Tool gedacht?
