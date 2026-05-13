@@ -12,7 +12,6 @@ Diese ZIP enthält nur die Dateien für **Tour Analyzer Plus**:
 tour-analyzer-plus.html
 tour-analyzer-plus-anleitung.html
 tour-analyzer-plus.png
-tour-analyzer-plus1.png
 proxy.php
 README.md
 LICENSE.md
