@@ -1,0 +1,12 @@
+{
+  "name": "Tour Analyzer Plus",
+  "version": "1.6.5",
+  "app_version": "1.6.0",
+  "package_type": "webspace",
+  "base_url": "https://overpass-osm.de.cool/tour-analyzer-plus/",
+  "start_file": "index.html",
+  "help_file": "hilfe.html",
+  "og_image": "tour-analyzer-plus.png",
+  "author": "Lutz Müller",
+  "canonical": "https://overpass-osm.de.cool/tour-analyzer-plus/index.html"
+}

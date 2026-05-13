@@ -3,7 +3,7 @@
 // proxy.php — CORS-Proxy für den Tour Analyzer
 // Lädt eine externe Datei (GeoJSON, GPX oder OSM-XML) serverseitig
 // und gibt sie direkt an den Browser weiter.
-// Der Browser sieht nur gabischatz.de.cool → kein CORS-Problem.
+// Der Browser sieht nur overpass-osm.de.cool → kein CORS-Problem.
 //
 // Aufruf: proxy.php?url=https://...
 // -------------------------------------------------------
@@ -35,7 +35,6 @@ if (!preg_match('#^https://#i', $url)) {
 // Hier: openstreetmap.org für die API, sowie deine eigenen Domains
 $erlaubteDomains = [
     'overpass-osm.de.cool',
-    'gabischatz.de.cool',
     'www.openstreetmap.org',     // OSM-API für XML
     'openstreetmap.org',          // ohne www
     'api.openstreetmap.org',      // falls mal verwendet
