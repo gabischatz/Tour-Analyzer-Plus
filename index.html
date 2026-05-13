@@ -11,7 +11,7 @@
 <meta name="license" content="CC BY 4.0">
 <link rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.de">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://overpass-osm.de.cool/tour-analyzer-plus/index.html">
+<link rel="canonical" href="https://gabischatz.de.cool/VeloLog/tour-analyzer-plus.html">
 
 <meta name="author" content="Lutz Müller (gabischatz)">
 <meta name="description" content="Tour Analyzer Plus: GPX, GeoJSON, KML und TCX laden, Koordinaten sammeln, OSM-Way-IDs per Objektabfrage auswählen und GeoJSON exportieren.">
@@ -24,15 +24,15 @@
 <meta property="og:title" content="Tour Analyzer Plus">
 <meta property="og:description" content="GPX, GeoJSON, KML und TCX laden, OSM-Wege per Objektabfrage auswählen, Way-IDs übernehmen und GeoJSON exportieren.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://overpass-osm.de.cool/tour-analyzer-plus/index.html">
-<meta property="og:image" content="https://overpass-osm.de.cool/tour-analyzer-plus/tour-analyzer-plus.png">
-<meta property="og:image:secure_url" content="https://overpass-osm.de.cool/tour-analyzer-plus/tour-analyzer-plus.png">
+<meta property="og:url" content="https://gabischatz.de.cool/VeloLog/tour-analyzer-plus.html">
+<meta property="og:image" content="https://gabischatz.de.cool/VeloLog/tour-analyzer-plus.png">
+<meta property="og:image:secure_url" content="https://gabischatz.de.cool/VeloLog/tour-analyzer-plus.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:alt" content="Vorschau von Tour Analyzer Plus mit Kartenansicht, OSM-Objektabfrage und GeoJSON-Export">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="800">
 <meta property="og:locale" content="de_DE">
-<meta property="og:site_name" content="overpass-osm.de.cool">
+<meta property="og:site_name" content="gabischatz.de.cool">
 
 <!-- ═══════════════════════════════════════════
      Twitter Card – Vorschau auf X / Twitter
@@ -41,16 +41,19 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Tour Analyzer Plus">
 <meta name="twitter:description" content="GPX, GeoJSON, KML und TCX laden, OSM-Wege per Objektabfrage auswählen, Way-IDs übernehmen und GeoJSON exportieren.">
-<meta name="twitter:image" content="https://overpass-osm.de.cool/tour-analyzer-plus/tour-analyzer-plus.png">
+<meta name="twitter:image" content="https://gabischatz.de.cool/VeloLog/tour-analyzer-plus.png">
 <meta name="twitter:image:alt" content="Vorschau von Tour Analyzer Plus mit Kartenansicht, OSM-Objektabfrage und GeoJSON-Export">
 
 <title>Tour Analyzer Plus — Koordinaten-Selektor mit OSM-Objektabfrage</title>
   <!--
     Projekt: Tour Analyzer Plus
     Autor: Lutz Müller (gabischatz)
-    Datei: index.html
-    Version: 1.6.0
+    Datei: tour-analyzer-plus.html
+    Version: 1.6.1
     Datum: 2026-05-03
+
+    Änderung 1.6.1:
+    - FIX: Ortssuche nutzt lokale zipcodes.json im selben App-Ordner, damit kein 404 durch fremde Serverpfade entsteht.
 
     Änderung 1.6.0:
     - UI: Koordinaten-Hover-Marker auf ein schlichtes blaues Plus ohne Kreis/Hintergrund reduziert.
@@ -63,7 +66,7 @@
 
     Änderung 1.5.8:
     - NEU: Klick auf Standortanzeige öffnet eine Ortssuche.
-    - NEU: Ortssuche nutzt https://overpass-osm.de.cool/json/zipcodes.json.
+    - FIX: Ortssuche nutzt die lokale Datei zipcodes.json im selben App-Ordner.
     - NEU: Nach Auswahl/Suche wird die Karte zum Ort verschoben und die Eingabe wieder ausgeblendet.
 
     Änderung 1.5.7:
@@ -74,7 +77,7 @@
 
     Änderung 1.5.6:
     - NEU: Thunderforest/OpenCycleMap-Key wird nicht mehr direkt in tour-analyzer-plus.html eingetragen.
-    - NEU: Key wird bei Bedarf über https://overpass-osm.de.cool/php/get_key.php geladen.
+    - NEU: Key wird bei Bedarf über https://gabischatz.de.cool/php/get_key.php geladen.
     - NEU: Link zur Key-Verwaltung ergänzt.
     - NEU: separate HTML-Seite php/thunderforest-key.html zum Anzeigen, Ändern und Löschen des Keys.
 
@@ -147,7 +150,7 @@
     Änderung 1.4.3:
     - NEU: Titel „Tour Analyzer Plus“ verlinkt auf die Startseite und lädt die App neu.
     - NEU: Hilfe-Button in der Kopfzeile.
-    - NEU: Separate Anleitungsseite hilfe.html erstellt.
+    - NEU: Separate Anleitungsseite tour-analyzer-plus-anleitung.html erstellt.
 
     Änderung 1.4.2:
     - NEU: Beim Klick auf GeoJSON oder GeoJSON (Rev) öffnet sich automatisch die Verlauf-/Routen-Relation-Sidebar.
@@ -203,7 +206,7 @@
     - NEU: Rechtsklick auf Karte öffnet eine eigene Objektabfrage wie bei OSM.
     - NEU: Nahe OSM-Wege werden per Overpass abgefragt und auswählbar angezeigt.
     - NEU: Way-ID wird blau dargestellt und öffnet im neuen Tab:
-           https://overpass-osm.de.cool/tour-analyzer-plus/index.html?way_id=ID
+           https://gabischatz.de.cool/VeloLog/tour-analyzer-plus.html?way_id=ID
     - NEU: Button zum Laden einer Way-ID im aktuellen Fenster.
     - FIX: Doppelte <style>-Öffnung entfernt.
     - FIX: Kontextmenü ist mobilfreundlich und scrollbar.
@@ -935,8 +938,8 @@
 
 <div class="header">
   <div class="header-left">
-    <div><a class="app-title-link" href="https://overpass-osm.de.cool/tour-analyzer-plus/index.html" title="Tour Analyzer Plus neu laden">📊 Tour Analyzer Plus</a> | <span id="metaDisplay">🗺️ Datei auf die Karte ziehen, auswählen oder per Rechtsklick OSM-Objekte abfragen</span></div>
-    <a class="action-btn" href="hilfe.html" target="_blank" rel="noopener noreferrer" title="Anleitung öffnen">❓ Hilfe</a>
+    <div><a class="app-title-link" href="https://gabischatz.de.cool/VeloLog/tour-analyzer-plus.html" title="Tour Analyzer Plus neu laden">📊 Tour Analyzer Plus</a> | <span id="metaDisplay">🗺️ Datei auf die Karte ziehen, auswählen oder per Rechtsklick OSM-Objekte abfragen</span></div>
+    <a class="action-btn" href="tour-analyzer-plus-anleitung.html" target="_blank" rel="noopener noreferrer" title="Anleitung öffnen">❓ Hilfe</a>
     <button id="exportGeoJsonBtn" class="action-btn warning">🗺️ Speichern</button>
     <button id="toggleSidebarBtn" class="action-btn" title="Verlauf und Sammlung anzeigen">☰</button>
   </div>
@@ -951,7 +954,7 @@
         <option value="satellite">🛰️ Satellit</option>
         <option value="carto">🎨 Hell</option>
       </select>
-      <a class="action-btn" href="https://overpass-osm.de.cool/php/thunderforest-key.html" target="_blank" rel="noopener noreferrer" title="Thunderforest/OpenCycleMap-Key anzeigen, ändern oder löschen">🔑 Key</a>
+      <a class="action-btn" href="https://gabischatz.de.cool/php/thunderforest-key.html" target="_blank" rel="noopener noreferrer" title="Thunderforest/OpenCycleMap-Key anzeigen, ändern oder löschen">🔑 Key</a>
     </div>
     <label class="file-label">📂 Route öffnen
       <input type="file" id="dateiInput" accept=".gpx,.geojson,.json,.kml,.tcx">
@@ -1073,11 +1076,11 @@
 <script>
   'use strict';
 
-  const APP_VERSION = '1.6.0';
-  const PROXY_URL = './proxy.php?url=';
-  const TOUR_ANALYZER_PLUS_URL = 'https://overpass-osm.de.cool/tour-analyzer-plus/index.html';
+  const APP_VERSION = '1.6.1';
+  const PROXY_URL = 'https://gabischatz.de.cool/VeloLog/proxy.php?url=';
+  const TOUR_ANALYZER_PLUS_URL = 'https://gabischatz.de.cool/VeloLog/tour-analyzer-plus.html';
   const CACHE_KEY = 'tour_analyzer_way_ids';
-  const ZIPCODES_URL = 'https://overpass-osm.de.cool/json/zipcodes.json';
+  const ZIPCODES_URL = 'zipcodes.json';
   const COLLECTION_COORDS_KEY = 'tour_analyzer_collection_coords';
   const ROUTE_RELATION_META_KEY = 'tour_analyzer_route_relation_meta';
   const OBJECT_QUERY_RADIUS_M = 35;
@@ -1107,8 +1110,8 @@
   ];
 
   const THUNDERFOREST_KEY_API = {
-    get: 'https://overpass-osm.de.cool/php/get_key.php',
-    manager: 'https://overpass-osm.de.cool/php/thunderforest-key.html'
+    get: 'https://gabischatz.de.cool/php/get_key.php',
+    manager: 'https://gabischatz.de.cool/php/thunderforest-key.html'
   };
   const MAP_STYLE_KEY = 'tour_analyzer_plus_map_style';
 
