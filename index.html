@@ -11,7 +11,7 @@
 <meta name="license" content="CC BY 4.0">
 <link rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.de">
 <meta name="robots" content="index, follow">
-<link rel="canonical" href="https://gabischatz.de.cool/VeloLog/tour-analyzer-plus.html">
+<link rel="canonical" href="https://overpass-osm.de.cool/tour-analyzer-plus/index.html">
 
 <meta name="author" content="Lutz Müller (gabischatz)">
 <meta name="description" content="Tour Analyzer Plus: GPX, GeoJSON, KML und TCX laden, Koordinaten sammeln, OSM-Way-IDs per Objektabfrage auswählen und GeoJSON exportieren.">
@@ -24,15 +24,15 @@
 <meta property="og:title" content="Tour Analyzer Plus">
 <meta property="og:description" content="GPX, GeoJSON, KML und TCX laden, OSM-Wege per Objektabfrage auswählen, Way-IDs übernehmen und GeoJSON exportieren.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://gabischatz.de.cool/VeloLog/tour-analyzer-plus.html">
-<meta property="og:image" content="https://gabischatz.de.cool/VeloLog/tour-analyzer-plus.png">
-<meta property="og:image:secure_url" content="https://gabischatz.de.cool/VeloLog/tour-analyzer-plus.png">
+<meta property="og:url" content="https://overpass-osm.de.cool/tour-analyzer-plus/index.html">
+<meta property="og:image" content="https://overpass-osm.de.cool/tour-analyzer-plus/tour-analyzer-plus.png">
+<meta property="og:image:secure_url" content="https://overpass-osm.de.cool/tour-analyzer-plus/tour-analyzer-plus.png">
 <meta property="og:image:type" content="image/png">
 <meta property="og:image:alt" content="Vorschau von Tour Analyzer Plus mit Kartenansicht, OSM-Objektabfrage und GeoJSON-Export">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="800">
 <meta property="og:locale" content="de_DE">
-<meta property="og:site_name" content="gabischatz.de.cool">
+<meta property="og:site_name" content="overpass-osm.de.cool">
 
 <!-- ═══════════════════════════════════════════
      Twitter Card – Vorschau auf X / Twitter
@@ -41,15 +41,15 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Tour Analyzer Plus">
 <meta name="twitter:description" content="GPX, GeoJSON, KML und TCX laden, OSM-Wege per Objektabfrage auswählen, Way-IDs übernehmen und GeoJSON exportieren.">
-<meta name="twitter:image" content="https://gabischatz.de.cool/VeloLog/tour-analyzer-plus.png">
+<meta name="twitter:image" content="https://overpass-osm.de.cool/tour-analyzer-plus/tour-analyzer-plus.png">
 <meta name="twitter:image:alt" content="Vorschau von Tour Analyzer Plus mit Kartenansicht, OSM-Objektabfrage und GeoJSON-Export">
 
 <title>Tour Analyzer Plus — Koordinaten-Selektor mit OSM-Objektabfrage</title>
   <!--
     Projekt: Tour Analyzer Plus
     Autor: Lutz Müller (gabischatz)
-    Datei: tour-analyzer-plus.html
-    Version: 1.6.1
+    Datei: index.html
+    Version: 1.6.2
     Datum: 2026-05-03
 
     Änderung 1.6.1:
@@ -67,6 +67,8 @@
     Änderung 1.5.8:
     - NEU: Klick auf Standortanzeige öffnet eine Ortssuche.
     - FIX: Ortssuche nutzt die lokale Datei zipcodes.json im selben App-Ordner.
+    Version: 1.6.2
+    - FIX: keine festen Fremdserver-Pfade mehr; proxy.php/convert.php/zipcodes.json werden relativ zur aktuellen App geladen.
     - NEU: Nach Auswahl/Suche wird die Karte zum Ort verschoben und die Eingabe wieder ausgeblendet.
 
     Änderung 1.5.7:
@@ -77,7 +79,7 @@
 
     Änderung 1.5.6:
     - NEU: Thunderforest/OpenCycleMap-Key wird nicht mehr direkt in tour-analyzer-plus.html eingetragen.
-    - NEU: Key wird bei Bedarf über https://gabischatz.de.cool/php/get_key.php geladen.
+    - NEU: Key wird bei Bedarf über die lokale php/get_key.php geladen, falls diese vorhanden ist.
     - NEU: Link zur Key-Verwaltung ergänzt.
     - NEU: separate HTML-Seite php/thunderforest-key.html zum Anzeigen, Ändern und Löschen des Keys.
 
@@ -206,7 +208,7 @@
     - NEU: Rechtsklick auf Karte öffnet eine eigene Objektabfrage wie bei OSM.
     - NEU: Nahe OSM-Wege werden per Overpass abgefragt und auswählbar angezeigt.
     - NEU: Way-ID wird blau dargestellt und öffnet im neuen Tab:
-           https://gabischatz.de.cool/VeloLog/tour-analyzer-plus.html?way_id=ID
+           https://overpass-osm.de.cool/tour-analyzer-plus/index.html?way_id=ID
     - NEU: Button zum Laden einer Way-ID im aktuellen Fenster.
     - FIX: Doppelte <style>-Öffnung entfernt.
     - FIX: Kontextmenü ist mobilfreundlich und scrollbar.
@@ -938,7 +940,7 @@
 
 <div class="header">
   <div class="header-left">
-    <div><a class="app-title-link" href="https://gabischatz.de.cool/VeloLog/tour-analyzer-plus.html" title="Tour Analyzer Plus neu laden">📊 Tour Analyzer Plus</a> | <span id="metaDisplay">🗺️ Datei auf die Karte ziehen, auswählen oder per Rechtsklick OSM-Objekte abfragen</span></div>
+    <div><a class="app-title-link" href="index.html" title="Tour Analyzer Plus neu laden">📊 Tour Analyzer Plus</a> | <span id="metaDisplay">🗺️ Datei auf die Karte ziehen, auswählen oder per Rechtsklick OSM-Objekte abfragen</span></div>
     <a class="action-btn" href="tour-analyzer-plus-anleitung.html" target="_blank" rel="noopener noreferrer" title="Anleitung öffnen">❓ Hilfe</a>
     <button id="exportGeoJsonBtn" class="action-btn warning">🗺️ Speichern</button>
     <button id="toggleSidebarBtn" class="action-btn" title="Verlauf und Sammlung anzeigen">☰</button>
@@ -954,7 +956,7 @@
         <option value="satellite">🛰️ Satellit</option>
         <option value="carto">🎨 Hell</option>
       </select>
-      <a class="action-btn" href="https://gabischatz.de.cool/php/thunderforest-key.html" target="_blank" rel="noopener noreferrer" title="Thunderforest/OpenCycleMap-Key anzeigen, ändern oder löschen">🔑 Key</a>
+      <a class="action-btn" href="php/thunderforest-key.html" target="_blank" rel="noopener noreferrer" title="Thunderforest/OpenCycleMap-Key anzeigen, ändern oder löschen">🔑 Key</a>
     </div>
     <label class="file-label">📂 Route öffnen
       <input type="file" id="dateiInput" accept=".gpx,.geojson,.json,.kml,.tcx">
@@ -1076,11 +1078,16 @@
 <script>
   'use strict';
 
-  const APP_VERSION = '1.6.1';
-  const PROXY_URL = 'https://gabischatz.de.cool/VeloLog/proxy.php?url=';
-  const TOUR_ANALYZER_PLUS_URL = 'https://gabischatz.de.cool/VeloLog/tour-analyzer-plus.html';
+  const APP_VERSION = '1.6.2';
+  const APP_BASE_URL = new URL('.', window.location.href);
+  const PROXY_URL = new URL('proxy.php', APP_BASE_URL).href + '?url=';
+  const CONVERT_URL = new URL('convert.php', APP_BASE_URL).href;
+  const TOUR_ANALYZER_PLUS_URL = new URL('index.html', APP_BASE_URL).href;
   const CACHE_KEY = 'tour_analyzer_way_ids';
-  const ZIPCODES_URL = 'zipcodes.json';
+  const ZIPCODES_URLS = [
+    new URL('json/zipcodes.json', APP_BASE_URL).href,
+    new URL('zipcodes.json', APP_BASE_URL).href
+  ];
   const COLLECTION_COORDS_KEY = 'tour_analyzer_collection_coords';
   const ROUTE_RELATION_META_KEY = 'tour_analyzer_route_relation_meta';
   const OBJECT_QUERY_RADIUS_M = 35;
@@ -1110,8 +1117,8 @@
   ];
 
   const THUNDERFOREST_KEY_API = {
-    get: 'https://gabischatz.de.cool/php/get_key.php',
-    manager: 'https://gabischatz.de.cool/php/thunderforest-key.html'
+    get: new URL('php/get_key.php', APP_BASE_URL).href,
+    manager: new URL('php/thunderforest-key.html', APP_BASE_URL).href
   };
   const MAP_STYLE_KEY = 'tour_analyzer_plus_map_style';
 
@@ -1320,12 +1327,21 @@
   async function ladeZipcodes() {
     if (zipcodesCache) return zipcodesCache;
 
-    const response = await fetch(ZIPCODES_URL, { cache: 'force-cache' });
-    if (!response.ok) throw new Error(`HTTP ${response.status}`);
+    let lastError = null;
+    for (const zipUrl of ZIPCODES_URLS) {
+      try {
+        const response = await fetch(zipUrl, { cache: 'force-cache' });
+        if (!response.ok) throw new Error(`HTTP ${response.status} bei ${zipUrl}`);
 
-    const data = await response.json();
-    zipcodesCache = Array.isArray(data) ? data : [];
-    return zipcodesCache;
+        const data = await response.json();
+        zipcodesCache = Array.isArray(data) ? data : [];
+        if (zipcodesCache.length > 0) return zipcodesCache;
+      } catch (err) {
+        lastError = err;
+      }
+    }
+
+    throw lastError || new Error('zipcodes.json wurde nicht gefunden. Erwartet: json/zipcodes.json oder zipcodes.json im App-Ordner.');
   }
 
   function normOrtText(value) {
@@ -2162,7 +2178,7 @@ ${idsFormatted}
     el('metaDisplay').textContent = `Lade OSM Way ${currentWayId}...`;
 
     try {
-      const res = await fetch(`convert.php?way_id=${encodeURIComponent(currentWayId)}`);
+      const res = await fetch(CONVERT_URL + '?way_id=' + encodeURIComponent(currentWayId));
       if (!res.ok) throw new Error('HTTP ' + res.status);
 
       const data = await res.json();
