@@ -1,4 +1,4 @@
-# Webspace-Struktur Tour Analyzer Plus v1.6.5
+# Webspace-Struktur Tour Analyzer Plus v1.6.50
 
 Zielordner auf dem Server:
 
@@ -26,7 +26,7 @@ Wichtig:
 - `.htaccess` setzt `index.html` als DirectoryIndex, falls der Server Apache-Regeln unterstützt.
 
 
-## Änderungen in v1.6.5
+## Änderungen in v1.6.51
 
 - Metadaten auf `https://overpass-osm.de.cool/tour-analyzer-plus/` korrigiert.
 - App-Startdatei bleibt `index.html`.
@@ -35,7 +35,7 @@ Wichtig:
 - Proxy wird relativ über `./proxy.php?url=` aufgerufen.
 
 
-## Änderungen in v1.6.5
+## Änderungen in v1.6.52
 
 - `hilfe.html` wurde vollständig überarbeitet.
 - Die Hilfeseite enthält jetzt die sieben Screenshots aus `docs/screenshots/`.
