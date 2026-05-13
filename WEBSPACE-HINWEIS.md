@@ -42,7 +42,7 @@ Wichtig:
 - Die Hilfe erklärt Start, Ortsbestimmung, Karte, Objektabfrage, OSM-Tags, Koordinatenpunkte und Export.
 
 
-## Änderungen in v1.6.5
+## Änderungen in v1.6.53
 
 - `hilfe.html` nutzt jetzt zweispaltige Detail-Sektionen.
 - Links steht der Erklärungstext, rechts der passende Screenshot.
